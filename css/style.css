@@ -1,17 +1,21 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
     height: 100vh;
     overflow-x: hidden;
     background-color: #908b8b;
+    cursor: url("../photo/cursor.png") 16 16, auto;
+
 }
+
 
 .name_logo {
     display: flex;
-    justify-content: center;
-    text-align: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 10px;
 }
 
 .logo {
@@ -22,57 +26,53 @@ body {
 .name {
     font-family: "PT Sans", sans-serif;
     font-weight: 700;
+    font-size: 16px;
+    color: white;
+    margin-left: 10px;
 }
 
 .sidebar {
     width: 250px;
     height: 100%;
-    background-color: #908b8bc5;
+    background-color: rgba(144, 139, 139, 0.77);
     position: fixed;
     top: 0;
     left: -250px;
     transition: 0.3s;
     padding-top: 60px;
     color: white;
-    overflow-x: hidden;
     z-index: 2;
+    overflow-x: hidden;
 }
 
 .sidebar a {
-    border-radius: 0 20px 20px 0;
+    display: flex;
+    align-items: center;
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
     color: white;
-    display: flex;
-    align-items: center;
     transition: 0.3s;
-}
-
-.sidebar .icon {
-    margin-right: 10px;
-    font-size: 14px;
-}
-
-.sidebar .menu {
-    display: inline; 
+    border-radius: 0 20px 20px 0;
 }
 
 .sidebar a:hover {
     background-color: darkgray;
 }
 
-.btn {
-    top: 0;
-    right: 0;
-    flex: 1;
-    z-index: 3;
-    padding: 20px;
-    transition: margin-left 0.3s;
+.sidebar .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.qr {
+    height: 120px;
+    width: auto;
+    margin: 20px auto;
+    display: block;
 }
 
 .open-btn {
-    z-index: 3;
     font-size: 18px;
     cursor: pointer;
     padding: 10px 15px;
@@ -83,65 +83,99 @@ body {
     position: fixed;
     top: 10px;
     left: 10px;
+    z-index: 3;
 }
 
 .open-btn:hover {
     color: #333;
 }
 
+
 .content {
-    margin-top: 40px;
-    margin-right: 30%;
-    position: relative; 
+    position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: calc(20vh - 1px);
-}
-.qr{
-    height: 120px;
-    width: auto;
-    margin-left: 20%;
+    height: calc(10vh - 5px);
+    padding: 25px;
+    color: white;
+
 }
 
-@media screen and (min-width: 769px) {
+.content h1 {
+    font-size: 26px;
+    margin-bottom: 16px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.show {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.show section {
+    flex: 1; 
+    min-width: 250px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.show section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+@media screen and (min-width: 801px) {
     .sidebar {
-        left: 0; 
-        width: 250px;
-    }
-    .sidebar .menu {
-        display: inline; 
+        left: 0;
     }
     .content {
-        margin-left: 250px; 
-        top:100%
+        margin-left: 250px;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .sidebar {
-        left: -250px; 
-        width: 60px; 
+        left: -250px;
+        width: 60px;
     }
-    .sidebar .menu {
-        display: none; 
-    }
-    .qr{
+    .sidebar .menu, .name, .qr {
         display: none;
     }
     .content {
-        margin-left: 0; 
-    }
-    .name {
-        display: none;
+        margin-left: 0;
     }
     .content h1 {
         font-size: 25px;
     }
-    .content p{
+    .content p {
         font-size: 16px;
+    }
+    .logo {
+        margin-left: 30px;
+    }
+    .show {
+        display: block; 
+        padding: 0 20px;
+    }
+    .show section {
+        margin-bottom: 20px; 
+    }
+
+    .show section span{
+        font-size: 12px;
     }
 }
